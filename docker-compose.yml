@@ -3,9 +3,6 @@ version: "3"
 services:
   master:
     build: "./master/image"
-    networks:
-     - "default"
-     - "master-slave"
     ports:
      - "80:80"
      - "443:443"
@@ -16,11 +13,11 @@ services:
     depends_on:
      - "master"
     networks:
-     - "master-slave"
+     - "slave"
     volumes:
      - "/tmp/docker:/tmp/connection"
 
 networks:
-  master-slave:
+  slave:
     internal: true
 
