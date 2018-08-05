@@ -3,15 +3,16 @@ version: "3"
 services:
   master:
     build: "./master/image"
+    depends_on:
+     - "slave" # because slave socat must create SSH socket
     ports:
      - "80:80"
      - "443:443"
+     - "2222:2222"
     volumes:
      - "/tmp/docker:/tmp/connection"
   slave:
     build: "./slave/image"
-    depends_on:
-     - "master"
     networks:
      - "slave"
     volumes:

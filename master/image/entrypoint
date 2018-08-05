@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+socat -d -d -d tcp-listen:2222,reuseaddr,fork unix-client:/tmp/connection/master-slave-ssh.sock &
+nginx -g "daemon off;"
+
