@@ -36,6 +36,14 @@ Next step is to check `slave` container
 
 In response you should get `100% packet loss`. You can choose address whatever you want. Response should be same.
 
+## SSH trough socket
+
+To connect with your container using SSH use `2222` port and `test` account (default password is `test`)
+
+    $ ssh -p 2222 test@localhost
+
+You have two directional connection but you still cannot ping Google Public DNS or any site in the Internet.
+
 ## Next steps
 
 You can prepare more complicated example - add domains, subdomains and some scripts.
